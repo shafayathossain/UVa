@@ -1,0 +1,101 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+
+int main()
+{
+    long long int a,b,c,d,e,f,g,h,i,j;
+    char m[100],n[100],p[100];
+    gets(p);
+    a=strlen(p);
+    c=0;
+    d=1;
+    for(b=a-1;b>=0;b--)
+    {
+        c=c+(p[b]-'0')*d;
+        d=d*10;
+    }
+    for(a=1;a<=c;a++)
+    {
+        gets(m);
+        b=strlen(m);
+        e=0;
+        for(d=b-1;d>=0;d--)
+        {
+            n[e]=m[d];
+            e++;
+        }
+        n[e]='\0';
+        j=0;
+        b=strlen(m);
+            g=1;
+            f=0;
+            for(e=0;e<b;e++)
+            {
+                f=f+(m[e]-'0')*g;
+                g=g*10;
+            }
+            g=1;
+            h=0;
+            for(e=0;e<b;e++)
+            {
+                h=h+(n[e]-'0')*g;
+                g=g*10;
+            }
+            i=f+h;
+            e=0;
+            while(i!=0)
+            {
+                m[e]=i%10+'0';
+                e++;
+                i=i/10;
+            }
+            m[e]='\0';
+            b=strlen(m);
+            e=0;
+            for(d=b-1;d>=0;d--)
+            {
+                n[e]=m[d];
+                e++;
+            }
+            n[e]='\0';
+            j++;
+        while(strcmp(m,n)!=0)
+        {
+            b=strlen(m);
+            g=1;
+            f=0;
+            for(e=0;e<b;e++)
+            {
+                f=f+(m[e]-'0')*g;
+                g=g*10;
+            }
+            g=1;
+            h=0;
+            for(e=0;e<b;e++)
+            {
+                h=h+(n[e]-'0')*g;
+                g=g*10;
+            }
+            i=f+h;
+            e=0;
+            while(i!=0)
+            {
+                m[e]=i%10+'0';
+                e++;
+                i=i/10;
+            }
+            m[e]='\0';
+            b=strlen(m);
+            e=0;
+            for(d=b-1;d>=0;d--)
+            {
+                n[e]=m[d];
+                e++;
+            }
+            n[e]='\0';
+            j++;
+        }
+        printf("%lld %s\n",j,m);
+    }
+}
