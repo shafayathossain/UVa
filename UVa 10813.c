@@ -1,0 +1,183 @@
+#include<stdio.h>
+
+int main()
+{
+    int a,b,c,d,e[5][5],f,g,h[100],i,j,k,l,m,n,o,p;
+    scanf("%d",&a);
+    for(b=1; b<=a; b++)
+    {
+        for(c=0; c<5; c++)
+        {
+            for(d=0; d<5; d++)
+            {
+                if(c==2 && d==2)
+                {
+                    e[c][d]=0;
+                    continue;
+                }
+                scanf("%d",&e[c][d]);
+            }
+        }
+        for(c=1; c<=75; c++)
+        {
+            scanf("%d",&h[c-1]);
+            if(c==1)
+                e[2][2]=h[c-1];
+        }
+        k=75;
+        l=75;
+        o=0;
+        p=0;
+        m=0;
+        n=0;
+        for(c=0; c<5; c++)
+        {
+            f=0;
+            g=0;
+            i=0;
+            j=0;
+            for(d=0; d<75; d++)
+            {
+                if(e[c][0]==h[d])
+                {
+                    if(f<d)
+                        f=d;
+                    i++;
+                }
+                if(e[c][1]==h[d])
+                {
+                    if(f<d)
+                        f=d;
+                    i++;
+                }
+                if(e[c][2]==h[d])
+                {
+                    if(f<d)
+                        f=d;
+                    i++;
+                }
+                if(e[c][3]==h[d])
+                {
+                    if(f<d)
+                        f=d;
+                    i++;
+                }
+                if(e[c][4]==h[d])
+                {
+                    if(f<d)
+                        f=d;
+                    i++;
+                }
+                if(e[0][c]==h[d])
+                {
+                    if(g<d)
+                        g=d;
+                    j++;
+                }
+                if(e[1][c]==h[d])
+                {
+                    if(g<d)
+                        g=d;
+                    j++;
+                }
+                if(e[2][c]==h[d])
+                {
+                    if(g<d)
+                        g=d;
+                    j++;
+                }
+                if(e[3][c]==h[d])
+                {
+                    if(g<d)
+                        g=d;
+                    j++;
+                }
+                if(e[4][c]==h[d])
+                {
+                    if(g<d)
+                        g=d;
+                    j++;
+                }
+                if(c==0)
+                {
+                    if(e[0][0]==h[d])
+                    {
+                        if(o<d)
+                            o=d;
+                        m++;
+                    }
+                    if(e[1][1]==h[d])
+                    {
+                        if(o<d)
+                            o=d;
+                        m++;
+                    }
+                    if(e[2][2]==h[d])
+                    {
+                        if(o<d)
+                            o=d;
+                        m++;
+                    }
+                    if(e[3][3]==h[d])
+                    {
+                        if(o<d)
+                            o=d;
+                        m++;
+                    }
+                    if(e[4][4]==h[d])
+                    {
+                        if(o<d)
+                            o=d;
+                        m++;
+                    }
+                    if(e[0][4]==h[d])
+                    {
+                        if(p<d)
+                            p=d;
+                        n++;
+                    }
+                    if(e[1][3]==h[d])
+                    {
+                        if(p<d)
+                            p=d;
+                        n++;
+                    }
+                    if(e[2][2]==h[d])
+                    {
+                        if(p<d)
+                            p=d;
+                        n++;
+                    }
+                    if(e[3][1]==h[d])
+                    {
+                        if(p<d)
+                            p=d;
+                        n++;
+                    }
+                    if(e[4][0]==h[d])
+                    {
+                        if(p<d)
+                            p=d;
+                        n++;
+                    }
+                }
+                if(i==5 || j==5)
+                {
+                    break;
+                }
+            }
+            if(f<k && i==5)
+                k=f;
+            if(g<l && j==5)
+                l=g;
+        }
+        if(k<l)
+            l=k;
+        if(m==5 && o<l)
+            l=o;
+        if(n==5 && p<l)
+            l=p;
+        printf("BINGO after %d numbers announced\n",l+1);
+    }
+    return 0;
+}
